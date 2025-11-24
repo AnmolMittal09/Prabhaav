@@ -159,7 +159,7 @@ const App: React.FC = () => {
               <a href="#" className="hover:text-white transition-colors">FAQ</a>
               <a href="#" className="hover:text-white transition-colors">Contact Us</a>
             </div>
-            <p>&copy; 2024 Prabhaav Stationery. Made with ♥ in India.</p>
+            <p>&copy; 2026 Prabhaav Stationery. Made with ♥ in India.</p>
           </div>
         </div>
       </footer>

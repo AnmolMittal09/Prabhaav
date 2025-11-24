@@ -133,11 +133,16 @@ const App: React.FC = () => {
           <div className="flex flex-col md:flex-row justify-between items-center mb-12">
             <h2 className="text-2xl font-serif flex items-center gap-2">
               <Instagram className="w-6 h-6" />
-              Follow @prabhaav.co
+              Follow @prabhaav.official
             </h2>
-            <button className="mt-4 md:mt-0 px-6 py-2 border border-white/20 rounded-full text-sm hover:bg-white hover:text-charcoal transition-colors">
+            <a 
+              href="https://www.instagram.com/prabhaav.official?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="mt-4 md:mt-0 px-6 py-2 border border-white/20 rounded-full text-sm hover:bg-white hover:text-charcoal transition-colors inline-block text-center"
+            >
               View on Instagram
-            </button>
+            </a>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-20">

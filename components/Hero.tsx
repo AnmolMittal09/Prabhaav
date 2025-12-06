@@ -5,12 +5,15 @@ import ThreeScene from './ThreeScene';
 
 const Hero: React.FC = () => {
   return (
-    <section id="hero" className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden bg-gradient-to-br from-brand-red via-[#4A0404] to-brand-red">
+    <section id="hero" className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
       
-      {/* 3D Background */}
+      {/* 1. Background Gradient Layer (Deepest) */}
+      <div className="absolute inset-0 bg-gradient-to-br from-brand-red via-[#4A0404] to-brand-red -z-20" />
+
+      {/* 2. 3D Background Layer (Middle) */}
       <ThreeScene />
 
-      {/* Content Overlay */}
+      {/* 3. Content Overlay Layer (Front) */}
       <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-2 pointer-events-none">
         <div className="flex flex-col justify-center items-start text-left pointer-events-auto">
           <motion.span 
@@ -61,7 +64,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Decorative Floating Elements */}
-      <div className="absolute bottom-10 left-10 hidden md:block opacity-40">
+      <div className="absolute bottom-10 left-10 hidden md:block opacity-40 z-10">
         <p className="text-xs font-serif italic text-gold transform -rotate-90 origin-bottom-left">
           Prabhaav Stationery © 2026
         </p>

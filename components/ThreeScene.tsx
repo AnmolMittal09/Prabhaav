@@ -18,10 +18,10 @@ const Notebook = (props: any) => {
 
   return (
     <group ref={group} {...props} dispose={null}>
-      {/* Cover (Front) */}
+      {/* Cover (Front) - Updated to Pale White #FAF9F6 */}
       <mesh position={[0, 0, 0.15]} castShadow receiveShadow>
         <boxGeometry args={[3, 4.2, 0.05]} />
-        <meshStandardMaterial color="#E8DCCA" roughness={0.6} metalness={0.1} />
+        <meshStandardMaterial color="#FAF9F6" roughness={0.6} metalness={0.1} />
       </mesh>
       
       {/* Pages block */}
@@ -30,10 +30,10 @@ const Notebook = (props: any) => {
         <meshStandardMaterial color="#FDFBF7" roughness={0.9} />
       </mesh>
       
-      {/* Cover (Back) */}
+      {/* Cover (Back) - Updated to Pale White #FAF9F6 */}
       <mesh position={[0, 0, -0.15]} castShadow receiveShadow>
         <boxGeometry args={[3, 4.2, 0.05]} />
-        <meshStandardMaterial color="#E8DCCA" roughness={0.6} metalness={0.1} />
+        <meshStandardMaterial color="#FAF9F6" roughness={0.6} metalness={0.1} />
       </mesh>
 
       {/* Binding / Spine */}
@@ -48,7 +48,7 @@ const Notebook = (props: any) => {
         <meshStandardMaterial color="#FDFBF7" />
       </mesh>
       
-      {/* Decorative elastic band */}
+      {/* Decorative elastic band - Brand Red */}
       <mesh position={[0, -1, 0.18]}>
         <boxGeometry args={[3.05, 0.1, 0.02]} />
         <meshStandardMaterial color="#5D0E0E" />
@@ -74,7 +74,7 @@ const Pen = (props: any) => {
 
 const ThreeScene: React.FC = () => {
   return (
-    <div className="w-full h-full absolute top-0 left-0 -z-10">
+    <div className="w-full h-full absolute top-0 left-0 z-0">
       <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 8], fov: 45 }}>
         <ambientLight intensity={0.7} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} shadow-mapSize={2048} intensity={2} castShadow />

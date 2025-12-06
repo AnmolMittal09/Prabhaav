@@ -25,15 +25,15 @@ const InteractiveBook = () => {
 
 const InteractiveViewer: React.FC = () => {
   return (
-    <section className="py-24 bg-cream overflow-hidden">
+    <section className="py-24 bg-brand-red overflow-hidden border-t border-pale/10">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
         
-        <div className="order-2 md:order-1 h-[500px] w-full bg-nude/20 rounded-3xl overflow-hidden relative cursor-move">
-            <div className="absolute top-4 left-4 z-10 bg-white/50 px-3 py-1 rounded-full text-xs font-bold text-softbrown backdrop-blur-md pointer-events-none">
+        <div className="order-2 md:order-1 h-[500px] w-full bg-white/5 border border-pale/10 rounded-3xl overflow-hidden relative cursor-move">
+            <div className="absolute top-4 left-4 z-10 bg-pale/90 px-3 py-1 rounded-full text-xs font-bold text-brand-red backdrop-blur-md pointer-events-none">
                 360° View - Drag to Rotate
             </div>
             <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 5], fov: 50 }}>
-                <Stage environment="city" intensity={0.6}>
+                <Stage environment="city" intensity={0.8}>
                     <InteractiveBook />
                 </Stage>
                 <OrbitControls autoRotate autoRotateSpeed={2} enableZoom={false} />
@@ -45,16 +45,16 @@ const InteractiveViewer: React.FC = () => {
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="text-4xl font-serif text-charcoal mb-6"
+                className="text-4xl font-serif text-pale mb-6"
             >
-                The Blush <span className="italic text-softbrown">Hardcover</span>
+                The Blush <span className="italic text-gold">Hardcover</span>
             </motion.h2>
             <motion.p 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="text-gray-600 mb-8 leading-relaxed"
+                className="text-pale/80 mb-8 leading-relaxed"
             >
                 Experience the premium texture of our best-selling hardcover notebook. 
                 Featuring 120gsm ivory paper, lay-flat binding, and a smooth matte finish 
@@ -70,15 +70,15 @@ const InteractiveViewer: React.FC = () => {
                  className="space-y-4"
             >
                 <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full bg-[#D3A29D] border-2 border-white shadow-sm"></div>
+                    <div className="w-12 h-12 rounded-full bg-[#D3A29D] border-2 border-pale/20 shadow-sm"></div>
                     <div>
-                        <p className="font-semibold text-charcoal">Blush Pink</p>
-                        <p className="text-xs text-gray-500">Limited Edition Color</p>
+                        <p className="font-semibold text-pale">Blush Pink</p>
+                        <p className="text-xs text-pale/50">Limited Edition Color</p>
                     </div>
                 </div>
                 
                 <div className="pt-6">
-                    <button className="w-full md:w-auto px-10 py-3 bg-charcoal text-white rounded-xl hover:bg-softbrown transition-colors">
+                    <button className="w-full md:w-auto px-10 py-3 bg-pale text-brand-red font-medium rounded-xl hover:bg-gold hover:text-brand-red transition-colors">
                         Customize & Buy - ₹1,499
                     </button>
                 </div>

@@ -51,7 +51,7 @@ const Notebook = (props: any) => {
       {/* Decorative elastic band */}
       <mesh position={[0, -1, 0.18]}>
         <boxGeometry args={[3.05, 0.1, 0.02]} />
-        <meshStandardMaterial color="#8D7B68" />
+        <meshStandardMaterial color="#5D0E0E" />
       </mesh>
     </group>
   );
@@ -76,13 +76,12 @@ const ThreeScene: React.FC = () => {
   return (
     <div className="w-full h-full absolute top-0 left-0 -z-10">
       <Canvas shadows dpr={[1, 2]} camera={{ position: [0, 0, 8], fov: 45 }}>
-        <ambientLight intensity={0.5} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} shadow-mapSize={2048} intensity={1.5} castShadow />
+        <ambientLight intensity={0.7} />
+        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} shadow-mapSize={2048} intensity={2} castShadow />
         <Environment preset="city" />
         
         <PresentationControls
           global
-          config={{ mass: 2, tension: 500 }}
           snap={true}
           rotation={[0, 0.3, 0]}
           polar={[-Math.PI / 4, Math.PI / 4]}
@@ -94,7 +93,7 @@ const ThreeScene: React.FC = () => {
           </Float>
         </PresentationControls>
         
-        <ContactShadows position={[0, -3, 0]} opacity={0.4} scale={20} blur={2.5} far={4} color="#8D7B68" />
+        <ContactShadows position={[0, -3, 0]} opacity={0.6} scale={20} blur={2.5} far={4} color="#000000" />
       </Canvas>
     </div>
   );

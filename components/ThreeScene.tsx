@@ -13,8 +13,11 @@ const Notebook = (props: any) => {
       const t = state.clock.getElapsedTime();
       // Gentle floating motion
       group.current.position.y = props.position[1] + Math.sin(t / 2) * 0.15;
-      // Gentle rotation
+      
+      // Gentle multi-axis rotation for "alive" feel
       group.current.rotation.z = Math.sin(t / 3) * 0.02;
+      group.current.rotation.y = Math.sin(t / 4) * 0.08; // Subtle side-to-side
+      group.current.rotation.x = Math.sin(t / 5) * 0.03; // Subtle forward-back
     }
   });
 
@@ -64,9 +67,15 @@ const Pen = (props: any) => {
     useFrame((state) => {
         if(group.current) {
             const t = state.clock.getElapsedTime();
-            // Pen floats independently nearby
+            
+            // Pen floats independently nearby with complex rotation
+            // Base Z is -0.5 (approx -28 degrees)
             group.current.rotation.z = -0.5 + Math.sin(t * 0.5) * 0.1;
             group.current.position.y = props.position[1] + Math.cos(t * 0.5) * 0.05;
+
+            // Add subtle secondary rotations
+            group.current.rotation.x = Math.sin(t * 0.3) * 0.05;
+            group.current.rotation.y = Math.sin(t * 0.4) * 0.05;
         }
     })
 

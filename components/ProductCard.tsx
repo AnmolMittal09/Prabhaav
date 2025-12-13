@@ -59,7 +59,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className="group relative perspective-1000"
     >
       <div 
-        className="relative bg-white/5 backdrop-blur-md border border-pale/10 rounded-2xl overflow-hidden shadow-xl transition-all duration-300"
+        className="relative bg-white/5 backdrop-blur-md border border-pale/10 rounded-2xl overflow-hidden shadow-xl transition-all duration-500 ease-out group-hover:-translate-y-2 group-hover:shadow-[0_20px_40px_-15px_rgba(212,175,55,0.3)] group-hover:border-pale/30"
         style={{ transform: "translateZ(0px)" }}
       >
         {/* Badge */}

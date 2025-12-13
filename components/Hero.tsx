@@ -40,8 +40,33 @@ const Hero: React.FC = () => {
                 
                 <motion.h1 
                     initial={{ opacity: 0, y: 40, scale: 0.95, filter: "blur(10px)" }}
-                    animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                    transition={{ delay: 0.7, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                    animate={{ 
+                        opacity: 1, 
+                        y: 0, 
+                        scale: 1, 
+                        filter: "blur(0px)",
+                        // Continuous breathing glow loop
+                        textShadow: [
+                            "0 0 0px rgba(212,175,55,0)", 
+                            "0 0 25px rgba(212,175,55,0.25)", 
+                            "0 0 0px rgba(212,175,55,0)"
+                        ]
+                    }}
+                    transition={{ 
+                        // Entrance Transition
+                        opacity: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] },
+                        y: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] },
+                        scale: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] },
+                        filter: { duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] },
+                        
+                        // Loop Transition (starts after entrance)
+                        textShadow: { 
+                            duration: 4, 
+                            ease: "easeInOut", 
+                            repeat: Infinity, 
+                            delay: 2 
+                        }
+                    }}
                     className="text-5xl md:text-7xl lg:text-8xl font-serif font-medium text-pale leading-[1.0] mb-6 tracking-tight drop-shadow-xl origin-left"
                 >
                     Design <br />

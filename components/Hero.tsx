@@ -39,10 +39,10 @@ const Hero: React.FC = () => {
                 </motion.div>
                 
                 <motion.h1 
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.7, duration: 0.8 }}
-                    className="text-5xl md:text-7xl lg:text-8xl font-serif font-medium text-pale leading-[1.0] mb-6 tracking-tight drop-shadow-xl"
+                    initial={{ opacity: 0, y: 40, scale: 0.95, filter: "blur(10px)" }}
+                    animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                    transition={{ delay: 0.7, duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+                    className="text-5xl md:text-7xl lg:text-8xl font-serif font-medium text-pale leading-[1.0] mb-6 tracking-tight drop-shadow-xl origin-left"
                 >
                     Design <br />
                     <span className="italic font-light opacity-90">Your</span> Legacy.
@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
                 <motion.p 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.9, duration: 0.8 }}
+                    transition={{ delay: 1.1, duration: 0.8 }}
                     className="text-lg text-pale/80 max-w-md mb-10 leading-relaxed font-sans font-light"
                 >
                     Where Indian craftsmanship meets modern minimalism. 
@@ -61,7 +61,7 @@ const Hero: React.FC = () => {
                 <motion.div 
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 1.1, duration: 0.8 }}
+                    transition={{ delay: 1.3, duration: 0.8 }}
                     className="flex flex-wrap gap-4"
                 >
                     <button className="group relative px-8 py-4 bg-pale text-brand-red rounded-full font-bold text-xs tracking-widest uppercase overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(212,175,55,0.4)]">

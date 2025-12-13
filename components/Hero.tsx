@@ -7,85 +7,92 @@ const Hero: React.FC = () => {
   return (
     <section id="hero" className="relative w-full h-screen min-h-[700px] flex items-center justify-center overflow-hidden">
       
-      {/* 1. Background Gradient Layer (Deepest) */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#420a0a] via-[#5D0E0E] to-[#420a0a] -z-20" />
+      {/* 1. Background Layers */}
+      <div className="absolute inset-0 bg-[#5D0E0E] -z-30" />
+      
+      {/* Spotlight Glow behind the 3D notebook area (Right side) */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[800px] h-[800px] bg-gradient-to-l from-[#7F1D1D] to-transparent rounded-full blur-[120px] opacity-60 -z-20 pointer-events-none translate-x-1/3" />
+      
+      {/* Grain Overlay */}
       <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-[0.05] -z-10 mix-blend-overlay"></div>
 
-      {/* 2. 3D Background Layer (Middle) */}
+      {/* 2. 3D Scene Layer (Full Screen, but content is positioned to the right) */}
       <ThreeScene />
 
-      {/* 3. Content Overlay Layer (Front) */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full grid grid-cols-1 md:grid-cols-12 pointer-events-none">
+      {/* 3. Content Overlay Layer */}
+      <div className="relative z-10 max-w-7xl mx-auto px-6 w-full h-full flex flex-col justify-center pointer-events-none">
         
-        <div className="md:col-span-7 flex flex-col justify-center items-start text-left pointer-events-auto">
-          <motion.div 
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ delay: 0.5, duration: 0.8 }}
-            className="flex items-center gap-3 mb-8"
-          >
-            <span className="w-12 h-[1px] bg-gold/50"></span>
-            <span className="text-gold text-xs font-bold tracking-[0.3em] uppercase">
-              Handcrafted in India
-            </span>
-          </motion.div>
-          
-          <motion.h1 
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.7, duration: 0.8 }}
-            className="text-6xl md:text-8xl lg:text-9xl font-serif font-medium text-pale leading-[0.9] mb-8 tracking-tight"
-          >
-            Make Your <br />
-            <span className="italic text-gold/90 font-light">Mark</span> Beautifully.
-          </motion.h1>
-
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.9, duration: 0.8 }}
-            className="text-lg md:text-xl text-pale/70 max-w-lg mb-12 leading-relaxed font-sans font-light"
-          >
-            Premium stationery designed for the mindful creators, dreamers, and doers. Experience the art of writing with Prabhaav.
-          </motion.p>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.1, duration: 0.8 }}
-            className="flex flex-col sm:flex-row gap-6"
-          >
-            <button className="group relative px-10 py-4 bg-pale text-brand-red rounded-full font-bold text-sm tracking-widest uppercase overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_20px_rgba(250,249,246,0.3)]">
-              <span className="relative z-10 flex items-center gap-2">
-                Shop Now <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </span>
-              <div className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500"></div>
-            </button>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 w-full h-full items-center">
             
-            <button className="px-10 py-4 bg-transparent border border-pale/30 text-pale rounded-full font-bold text-sm tracking-widest uppercase hover:bg-pale/10 transition-colors">
-              Explore Diaries
-            </button>
-          </motion.div>
+            {/* Left Column: Text Content */}
+            <div className="flex flex-col justify-center items-start text-left pointer-events-auto md:pr-10">
+                <motion.div 
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.5, duration: 0.8 }}
+                    className="flex items-center gap-3 mb-6"
+                >
+                    <span className="w-8 h-[1px] bg-gold"></span>
+                    <span className="text-gold text-[10px] md:text-xs font-bold tracking-[0.3em] uppercase">
+                    Premium Stationery
+                    </span>
+                </motion.div>
+                
+                <motion.h1 
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.7, duration: 0.8 }}
+                    className="text-5xl md:text-7xl lg:text-8xl font-serif font-medium text-pale leading-[1.0] mb-6 tracking-tight drop-shadow-xl"
+                >
+                    Design <br />
+                    <span className="italic font-light opacity-90">Your</span> Legacy.
+                </motion.h1>
+
+                <motion.p 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.9, duration: 0.8 }}
+                    className="text-lg text-pale/80 max-w-md mb-10 leading-relaxed font-sans font-light"
+                >
+                    Where Indian craftsmanship meets modern minimalism. 
+                    Elevate your daily rituals with our handcrafted journals.
+                </motion.p>
+
+                <motion.div 
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1.1, duration: 0.8 }}
+                    className="flex flex-wrap gap-4"
+                >
+                    <button className="group relative px-8 py-4 bg-pale text-brand-red rounded-full font-bold text-xs tracking-widest uppercase overflow-hidden transition-all hover:scale-105 hover:shadow-[0_0_25px_rgba(212,175,55,0.4)]">
+                        <span className="relative z-10 flex items-center gap-2">
+                            Shop Collection <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                        </span>
+                    </button>
+                    
+                    <button className="px-8 py-4 bg-transparent border border-pale/20 text-pale rounded-full font-bold text-xs tracking-widest uppercase hover:bg-pale/10 hover:border-pale/40 transition-all backdrop-blur-sm">
+                        View Lookbook
+                    </button>
+                </motion.div>
+            </div>
+
+            {/* Right Column: Empty to allow 3D model visibility */}
+            <div className="hidden md:block">
+                {/* The 3D model sits here visually */}
+            </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <motion.div 
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1, y: [0, 10, 0] }}
-        transition={{ delay: 2, duration: 2, repeat: Infinity }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2"
+        animate={{ opacity: 1, y: [0, 8, 0] }}
+        transition={{ delay: 2, duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
       >
-        <span className="text-[10px] uppercase tracking-[0.3em] text-pale/50">Scroll</span>
-        <ChevronDown className="w-4 h-4 text-pale/50" />
+        <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-pale/40 to-transparent"></div>
+        <span className="text-[9px] uppercase tracking-[0.3em] text-pale/40">Explore</span>
       </motion.div>
-
-      {/* Decorative Floating Elements */}
-      <div className="absolute bottom-10 left-10 hidden md:block opacity-30 z-10">
-        <p className="text-xs font-serif italic text-gold transform -rotate-90 origin-bottom-left whitespace-nowrap">
-          Prabhaav Stationery Collection © 2026
-        </p>
-      </div>
     </section>
   );
 };
